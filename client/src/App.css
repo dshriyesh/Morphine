@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap');
+@import "tailwindcss";
+
+
+.happy-monkey-regular {
+  font-family: "Happy Monkey", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+          animation: scroll 22s linear infinite;
+        }
+
+        /* Default size — far from center = large */
+        .scroll-card {
+          width: 320px;
+          height: 250px;
+          transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+        }
+
+        /* Cards near the horizontal center shrink */
+        .scroll-card:nth-child(3n+2) {
+          width: 280px;   
+          height: 200px;  
+        }
+
+        .scroll-card:nth-child(3n+3) {
+          width: 350px;   
+          height: 245px; 
+        }
