@@ -1,6 +1,14 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
+
+  const navigate  = useNavigate()
+
+  const toLoginPage = function(){
+    navigate('/login')
+  }
+
   return (
     <header className="w-full border border-white/10 bg-black/80 shadow-sm backdrop-blur-md">
       <div className="flex h-14 w-full items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -15,10 +23,14 @@ const Header = () => {
 
         {/* Right Side */}
         <div className="flex items-center gap-3">
-          <button className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-black hover:bg-gray-200 transition">
+          <button className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-black hover:bg-gray-200 transition"
+          onClick={toLoginPage}
+          >
             Sign In
           </button>
-          <button className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-black hover:bg-gray-200 transition">
+          <button className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-black hover:bg-gray-200 transition"
+          onClick={toLoginPage}
+          >
             Sign Up
           </button>
         </div>

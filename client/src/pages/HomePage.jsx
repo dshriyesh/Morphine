@@ -13,6 +13,7 @@ const images = [
 ]
 
 const HomePage = () => {
+
   return (
     <>
      <Header />
