@@ -32,6 +32,8 @@ const loginAndRegister = () => {
             <MosaicTile images={images} initialIndex={1} interval={7500} className="col-span-2" />
             <MosaicTile images={images} initialIndex={7} interval={8500} />
             <MosaicTile images={images} initialIndex={4} interval={9800} />
+            <MosaicTile images={images} initialIndex={8} interval={5500} />
+
         </div>
 
         <div className="absolute bottom-15 left-15 right-0 z-10 p-10">
