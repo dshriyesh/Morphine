@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import { assets } from '../assets/assets.js'
 import axiosInstance from '../utils/axiosInstance.js'
 import { UserContext } from '../context/UserContext.jsx'
+import { useNavigate } from 'react-router-dom'
 
 const AuthForm = ({mode}) => {
     
@@ -14,6 +15,8 @@ const AuthForm = ({mode}) => {
     const [fullname,setFullname] = useState('')
     const [username,setUsername] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+
+    const navigate  = useNavigate()
 
     const handleSubmit = async () => {  
       if (!isLogin && password !== confirmPassword) {
@@ -28,6 +31,8 @@ const AuthForm = ({mode}) => {
             password
           })
           setUser(res.data.data.user)
+          navigate('/') 
+          
         } else {
           const res = await axiosInstance.post('/users/register', {
             fullname,
@@ -36,6 +41,8 @@ const AuthForm = ({mode}) => {
             password
           })
           setUser(res.data.data)
+          navigate('/login') 
+          
         }
       } catch (error) {
         console.log(error.response.data.message)

@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../components/Header.jsx'
 import { assets } from '../assets/assets.js'
 import Footer from '../components/Footer.jsx'
+import { useNavigate } from 'react-router-dom'
 
 const images = [
   assets.cats,
@@ -13,6 +14,12 @@ const images = [
 ]
 
 const HomePage = () => {
+
+  const navigate  = useNavigate()
+  
+    const toLoginPage = function(){
+      navigate('/login')
+    }
 
   return (
     <>
@@ -56,7 +63,9 @@ const HomePage = () => {
             Morphine makes it easy for everyone at the same place to upload, share,
             and access photos instantly in one shared cloud gallery.
           </p>
-          <button className="mt-8 px-5 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition flex items-center justify-center gap-2">
+          <button className="mt-8 px-5 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition flex items-center justify-center gap-2"
+          onClick={toLoginPage}
+          >
             Get Started
             <img src={assets.white_arrow} alt="arrow" className="w-4 h-4" />
           </button>

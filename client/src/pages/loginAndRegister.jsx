@@ -2,10 +2,16 @@ import React, { useState } from 'react'
 import { assets } from '../assets/assets.js'
 import MosaicTile from '../components/MosaicTile.jsx'
 import AuthForm from '../components/AuthForm.jsx'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const loginAndRegister = () => {
 
-    const [activeTab, setActiveTab] = useState('login')
+    const location = useLocation()
+
+    const navigate = useNavigate()
+
+    const activeTab = location.pathname === '/register' ? 'register' : 'login'
+
 
     const images =[
         assets.cats,
@@ -63,9 +69,9 @@ const loginAndRegister = () => {
             {/*singin and signup area */}
             <div className="flex gap-8 mb-60 border-b border-white/20">
                 <button
-                    onClick={() => setActiveTab('login')}
+                     onClick={() => navigate('/login')}
                     className={`pb-3 text-sm font-medium transition-all ${
-                    activeTab === 'login'
+                        activeTab === 'login'
                         ? 'text-white border-b-2 border-white'
                         : 'text-white/40 border-b-2 border-transparent'
                     }`}
@@ -73,9 +79,9 @@ const loginAndRegister = () => {
                     Sign in
                 </button>
                 <button
-                    onClick={() => setActiveTab('register')}
+                    onClick={() => navigate('/register')}
                     className={`pb-3 text-sm font-medium transition-all ${
-                    activeTab === 'register'
+                        activeTab === 'register'
                         ? 'text-white border-b-2 border-white'
                         : 'text-white/40 border-b-2 border-transparent'
                     }`}
