@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 const AuthForm = ({mode}) => {
     
     const isLogin = mode === 'login'
-    const { setUser } = useContext(UserContext)
+    const { setUser, showToast } = useContext(UserContext)
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
     const [email,setEmail] = useState('')
@@ -31,6 +31,7 @@ const AuthForm = ({mode}) => {
             password
           })
           setUser(res.data.data.user)
+          showToast('Signin successfully!', 'success')
           navigate('/') 
           
         } else {
@@ -41,11 +42,13 @@ const AuthForm = ({mode}) => {
             password
           })
           setUser(res.data.data)
+          showToast('Account created successfully!', 'success')
           navigate('/login') 
           
         }
       } catch (error) {
         console.log(error.response.data.message)
+        showToast('Something went wrong!', 'error')
       }
     }
 
